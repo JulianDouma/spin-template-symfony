@@ -53,7 +53,7 @@ created: 2026-03-18
 ## Wave 0 Requirements
 
 - [ ] `template/Dockerfile` — multi-stage Dockerfile with all targets
-- [ ] `template/.infrastructure/conf/entrypoint.d/10-cache-warmup.sh` — entrypoint hook for Symfony cache warmup
+- [ ] `template/.infrastructure/entrypoint.d/10-cache-warmup.sh` — entrypoint hook for Symfony cache warmup
 - [ ] `.dockerignore` — exclude .git, .planning, node_modules, var/cache, var/log
 
 *Existing infrastructure: none (greenfield)*

@@ -15,8 +15,8 @@ Multi-stage Dockerfile and runtime configuration that builds and serves a Symfon
 
 ### Dockerfile Structure
 - Single Dockerfile with ARG interpolation: `FROM serversideup/php:${PHP_VERSION}-${PHP_VARIATION}` — one file for all variations
-- Build args: `PHP_VERSION` (8.3/8.4/8.5), `PHP_VARIATION` (frankenphp/fpm-nginx/fpm-apache), `PHP_OS` (debian/alpine)
-- OS suffix handling: append `-alpine` to tag when `PHP_OS=alpine`, no suffix for debian
+- Build args: `PHP_VERSION` (8.3/8.4/8.5), `PHP_VARIATION` (frankenphp/fpm-nginx/fpm-apache), `PHP_OS_SUFFIX` (empty string for debian, `-alpine` for alpine)
+- Note: Docker `FROM` cannot evaluate shell conditionals, so the Dockerfile uses `PHP_OS_SUFFIX` (not `PHP_OS`) directly in the tag interpolation. The `install.sh` (Phase 3) is responsible for translating the user's OS choice into the correct suffix value (e.g., user picks "alpine" → install.sh sets `PHP_OS_SUFFIX=-alpine`)
 
 ### Deploy Stage (Production/Staging)
 - Follow official Symfony deployment approach — no `cache:warmup` at build time (avoids DB/service connection failures during `docker build`)

@@ -8,15 +8,15 @@
 ### Dockerfile
 
 - [ ] **DOCK-01**: Multi-stage Dockerfile with `base`, `development`, `ci`, and `deploy` targets using `serversideup/php` images
-- [ ] **DOCK-02**: Dockerfile accepts `PHP_VERSION`, `PHP_VARIATION`, and `PHP_OS` build args to support configurable PHP version (8.3-8.5), runtime variation (frankenphp, fpm-nginx, fpm-apache), and OS (debian/alpine)
+- [ ] **DOCK-02**: Dockerfile accepts `PHP_VERSION`, `PHP_VARIATION`, and `PHP_OS_SUFFIX` build args to support configurable PHP version (8.3-8.5), runtime variation (frankenphp, fpm-nginx, fpm-apache), and OS (debian default, alpine via `-alpine` suffix)
 - [ ] **DOCK-03**: Development stage sets `USER_ID` and `GROUP_ID` args for host permission matching
 - [ ] **DOCK-04**: Deploy stage copies application code, sets correct ownership to `www-data`
 - [ ] **DOCK-05**: CI stage runs as root for pipeline compatibility
 
 ### Runtime Configuration
 
-- [ ] **RT-01**: Template ships a Caddyfile for FrankenPHP variation with document root `/var/www/html/public` and internal ports 8080/8443
-- [ ] **RT-02**: Health check endpoint available for all variations — Caddyfile `/healthz` for FrankenPHP, appropriate config for fpm-nginx/fpm-apache
+- [ ] **RT-01**: Runtime document root configured to `/var/www/html/public` via serversideup/php environment variables (no custom Caddyfile/nginx/apache configs shipped — per CONTEXT.md decision)
+- [ ] **RT-02**: Health check endpoint available for all variations via serversideup/php built-in `/healthcheck` (no custom config required)
 - [ ] **RT-03**: `install.sh` patches Dockerfile, compose files, and Traefik labels based on selected runtime variation (port, scheme, health path)
 
 ### Compose Base
