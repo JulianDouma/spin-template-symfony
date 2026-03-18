@@ -1,0 +1,7 @@
+---
+title: Symfony Basic Template
+authors:
+  - Julian Douma (@JulianDouma)
+description: The Symfony Spin template when you run `spin new symfony` from CLI.
+repository: https://github.com/JulianDouma/spin-template-symfony
+issues: https://github.com/JulianDouma/spin-template-symfony/issues
