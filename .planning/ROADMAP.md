@@ -58,7 +58,11 @@ Plans:
   2. After `spin new symfony` completes, `symfony/skeleton` is installed in the project directory via Composer running inside Docker (no host Composer required)
   3. The generated `Dockerfile FROM` line and runtime config files match the PHP version, variation, and OS selected during prompting
   4. `spin init` (on an existing project) runs the `init()` function without triggering skeleton install
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — meta.yml template registration and install.sh with interactive prompts
+- [ ] 03-02-PLAN.md — post-install.sh with Dockerfile patching, Composer deps, and git init
 
 ### Phase 4: Production and Ship
 **Goal**: The template supports Docker Swarm production deployment with Let's Encrypt SSL and per-runtime Traefik labels, and is documented well enough for a developer to go from zero to live
@@ -81,5 +85,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
 | 2. Development Environment | 1/1 | Complete | 2026-03-18 |
-| 3. Install Scripts | 0/? | Not started | - |
+| 3. Install Scripts | 0/2 | Not started | - |
 | 4. Production and Ship | 0/? | Not started | - |
