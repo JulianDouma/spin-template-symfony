@@ -2,16 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-18T19:37:01.166Z"
-last_activity: 2026-03-18 — Roadmap revised, all 39 requirements mapped to 4 phases (runtime flexibility added)
+status: unknown
+stopped_at: Completed 01-container-runtime 01-01-PLAN.md
+last_updated: "2026-03-18T20:04:05.993Z"
 progress:
   total_phases: 4
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  completed_phases: 1
+  total_plans: 1
+  completed_plans: 1
 ---
 
 # Project State
@@ -21,16 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-18)
 
 **Core value:** Developers can run `spin new symfony` and get a working Symfony 7 LTS application with their choice of PHP runtime (FrankenPHP default, fpm-nginx, fpm-apache), Traefik, and production-ready Docker configuration in under a minute.
-**Current focus:** Phase 1 — Container Runtime
+**Current focus:** Phase 01 — container-runtime
 
 ## Current Position
 
-Phase: 1 of 4 (Container Runtime)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-03-18 — Roadmap revised, all 39 requirements mapped to 4 phases (runtime flexibility added)
-
-Progress: [░░░░░░░░░░] 0%
+Phase: 01 (container-runtime) — EXECUTING
+Plan: 1 of 1
 
 ## Performance Metrics
 
@@ -52,6 +46,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-container-runtime P01 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -66,6 +61,9 @@ Recent decisions affecting current work:
 - No database included — template stays minimal, users add their own
 - Follow Laravel basic template patterns — use as reference for Dockerfile stages, Compose overlays, and .infrastructure/ structure
 - Default OS: Debian — Alpine causes musl stack-size crashes with FrankenPHP worker mode; emit warning if Alpine selected
+- [Phase 01-container-runtime]: PHP_OS_SUFFIX ARG (not PHP_OS) for Alpine — Docker FROM cannot evaluate shell conditionals; empty string = Debian, -alpine = Alpine; patched by install.sh
+- [Phase 01-container-runtime]: cache:warmup at container start via /etc/entrypoint.d/ hook — not at docker build time, avoids failures when Redis/database unavailable
+- [Phase 01-container-runtime]: No Caddyfile/nginx.conf/apache.conf shipped — serversideup/php env vars (CADDY_SERVER_ROOT, NGINX_WEBROOT, APACHE_DOCUMENT_ROOT) set in compose files (Phase 2)
 
 ### Pending Todos
 
@@ -79,6 +77,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T19:37:01.164Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-container-runtime/01-CONTEXT.md
+Last session: 2026-03-18T20:04:05.991Z
+Stopped at: Completed 01-container-runtime 01-01-PLAN.md
+Resume file: None

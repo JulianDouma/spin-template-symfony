@@ -12,7 +12,7 @@ Build a production-ready Spin CLI template that bootstraps Symfony 7 LTS with de
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Container Runtime** - Multi-stage Dockerfile and runtime config files that build and serve Symfony correctly across supported PHP variations
+- [x] **Phase 1: Container Runtime** - Multi-stage Dockerfile and runtime config files that build and serve Symfony correctly across supported PHP variations (completed 2026-03-18)
 - [ ] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, Mailpit, and live-editing volumes
 - [ ] **Phase 3: Install Scripts** - Interactive `install.sh`, `post-install.sh`, and `meta.yml` that automate setup including runtime selection
 - [ ] **Phase 4: Production and Ship** - Prod Swarm config, Traefik ACME, named volumes, per-runtime labels, and README
@@ -29,7 +29,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A running FrankenPHP container serves HTTP on port 8080 with the document root resolving from `/var/www/html/public` (no 404 on `/`)
   4. `curl http://localhost/healthz` (or the variation-appropriate health path) returns 200 OK from the shipped runtime config
   5. Changing `PHP_VERSION`, `PHP_VARIATION`, or `PHP_OS` build args produces a different base image tag without Dockerfile edits
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Dockerfile, .dockerignore, and entrypoint cache warmup script
@@ -76,7 +76,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Container Runtime | 0/1 | Planning complete | - |
+| 1. Container Runtime | 1/1 | Complete   | 2026-03-18 |
 | 2. Development Environment | 0/? | Not started | - |
 | 3. Install Scripts | 0/? | Not started | - |
 | 4. Production and Ship | 0/? | Not started | - |

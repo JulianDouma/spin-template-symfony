@@ -7,16 +7,16 @@
 
 ### Dockerfile
 
-- [ ] **DOCK-01**: Multi-stage Dockerfile with `base`, `development`, `ci`, and `deploy` targets using `serversideup/php` images
-- [ ] **DOCK-02**: Dockerfile accepts `PHP_VERSION`, `PHP_VARIATION`, and `PHP_OS_SUFFIX` build args to support configurable PHP version (8.3-8.5), runtime variation (frankenphp, fpm-nginx, fpm-apache), and OS (debian default, alpine via `-alpine` suffix)
-- [ ] **DOCK-03**: Development stage sets `USER_ID` and `GROUP_ID` args for host permission matching
-- [ ] **DOCK-04**: Deploy stage copies application code, sets correct ownership to `www-data`
-- [ ] **DOCK-05**: CI stage runs as root for pipeline compatibility
+- [x] **DOCK-01**: Multi-stage Dockerfile with `base`, `development`, `ci`, and `deploy` targets using `serversideup/php` images
+- [x] **DOCK-02**: Dockerfile accepts `PHP_VERSION`, `PHP_VARIATION`, and `PHP_OS_SUFFIX` build args to support configurable PHP version (8.3-8.5), runtime variation (frankenphp, fpm-nginx, fpm-apache), and OS (debian default, alpine via `-alpine` suffix)
+- [x] **DOCK-03**: Development stage sets `USER_ID` and `GROUP_ID` args for host permission matching
+- [x] **DOCK-04**: Deploy stage copies application code, sets correct ownership to `www-data`
+- [x] **DOCK-05**: CI stage runs as root for pipeline compatibility
 
 ### Runtime Configuration
 
-- [ ] **RT-01**: Runtime document root configured to `/var/www/html/public` via serversideup/php environment variables (no custom Caddyfile/nginx/apache configs shipped — per CONTEXT.md decision)
-- [ ] **RT-02**: Health check endpoint available for all variations via serversideup/php built-in `/healthcheck` (no custom config required)
+- [x] **RT-01**: Runtime document root configured to `/var/www/html/public` via serversideup/php environment variables (no custom Caddyfile/nginx/apache configs shipped — per CONTEXT.md decision)
+- [x] **RT-02**: Health check endpoint available for all variations via serversideup/php built-in `/healthcheck` (no custom config required)
 - [ ] **RT-03**: `install.sh` patches Dockerfile, compose files, and Traefik labels based on selected runtime variation (port, scheme, health path)
 
 ### Compose Base
@@ -100,13 +100,13 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DOCK-01 | Phase 1 | Pending |
-| DOCK-02 | Phase 1 | Pending |
-| DOCK-03 | Phase 1 | Pending |
-| DOCK-04 | Phase 1 | Pending |
-| DOCK-05 | Phase 1 | Pending |
-| RT-01 | Phase 1 | Pending |
-| RT-02 | Phase 1 | Pending |
+| DOCK-01 | Phase 1 | Complete |
+| DOCK-02 | Phase 1 | Complete |
+| DOCK-03 | Phase 1 | Complete |
+| DOCK-04 | Phase 1 | Complete |
+| DOCK-05 | Phase 1 | Complete |
+| RT-01 | Phase 1 | Complete |
+| RT-02 | Phase 1 | Complete |
 | COMP-01 | Phase 2 | Pending |
 | COMP-02 | Phase 2 | Pending |
 | DEV-01 | Phase 2 | Pending |
