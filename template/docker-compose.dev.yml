@@ -1,0 +1,40 @@
+services:
+  traefik:
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      development:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./.infrastructure/conf/traefik/dev/traefik.yml:/traefik.yml:ro
+      - ./.infrastructure/conf/traefik/dev/traefik-certs.yml:/traefik-certs.yml
+      - ./.infrastructure/conf/traefik/dev/certificates/:/certificates
+
+  php:
+    build:
+      target: development
+      args:
+        USER_ID: ${SPIN_USER_ID}
+        GROUP_ID: ${SPIN_GROUP_ID}
+    environment:
+      CADDY_SERVER_ROOT: /var/www/html/public
+    volumes:
+      - .:/var/www/html/
+      - symfony_var:/var/www/html/var
+    networks:
+      - development
+    depends_on:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.symfony.rule=HostRegexp(`localhost`)"
+      - "traefik.http.routers.symfony.entrypoints=web"
+      - "traefik.http.services.symfony.loadbalancer.server.port=8080"
+      - "traefik.http.services.symfony.loadbalancer.server.scheme=http"
+
+networks:
+  development:
+
+volumes:
+  symfony_var:
