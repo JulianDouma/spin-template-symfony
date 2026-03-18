@@ -80,8 +80,8 @@ RUN composer dump-autoload --classmap-authoritative --no-dev && \
     composer dump-env prod && \
     composer run-script --no-dev post-install-cmd
 
-# Compile assets if using Symfony AssetMapper (importmap.php present)
-RUN if [ -f importmap.php ]; then php bin/console asset-map:compile; fi
+# Uncomment to compile assets if using Symfony AssetMapper
+# RUN if [ -f importmap.php ]; then php bin/console asset-map:compile; fi
 
 # Install startup hook (cache warmup runs at container start, not build time,
 # so that Redis/database/etc. are available when the cache is built)
