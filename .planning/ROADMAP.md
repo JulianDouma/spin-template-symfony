@@ -29,7 +29,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A running FrankenPHP container serves HTTP on port 8080 with the document root resolving from `/var/www/html/public` (no 404 on `/`)
   4. `curl http://localhost/healthz` (or the variation-appropriate health path) returns 200 OK from the shipped runtime config
   5. Changing `PHP_VERSION`, `PHP_VARIATION`, or `PHP_OS` build args produces a different base image tag without Dockerfile edits
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 01-01-PLAN.md — Dockerfile, .dockerignore, and entrypoint cache warmup script
 
 ### Phase 2: Development Environment
 **Goal**: Developers can run `spin up` and get a working local Symfony environment with HTTPS, live code editing, and email testing
@@ -73,7 +76,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Container Runtime | 0/? | Not started | - |
+| 1. Container Runtime | 0/1 | Planning complete | - |
 | 2. Development Environment | 0/? | Not started | - |
 | 3. Install Scripts | 0/? | Not started | - |
 | 4. Production and Ship | 0/? | Not started | - |
