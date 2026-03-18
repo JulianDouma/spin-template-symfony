@@ -19,7 +19,7 @@ Developers can run `spin new symfony` and get a working Symfony 7 LTS applicatio
 - [ ] Template bootstraps from `spin-template-skeleton` structure (meta.yml, install.sh, template/ directory)
 - [ ] Interactive `install.sh` lets users choose PHP version (8.3, 8.4, 8.5 if supported), OS (debian/alpine)
 - [ ] FrankenPHP is the default and primary runtime (using `serversideup/php:*-frankenphp` images)
-- [ ] Multi-stage Dockerfile with base, development, ci, and deploy targets
+- [x] Multi-stage Dockerfile with base, development, ci, and deploy targets — Validated in Phase 1
 - [ ] `docker-compose.yml` base config with PHP/Symfony service
 - [ ] `docker-compose.dev.yml` with Traefik reverse proxy, volume mounts for live editing, Mailpit
 - [ ] `docker-compose.prod.yml` with Swarm deployment, Let's Encrypt SSL, health checks, named volumes
@@ -68,4 +68,4 @@ Developers can run `spin new symfony` and get a working Symfony 7 LTS applicatio
 | Symfony 7 LTS | Long-term support ensures stability | — Pending |
 
 ---
-*Last updated: 2026-03-18 after initialization*
+*Last updated: 2026-03-18 after Phase 1 completion*
