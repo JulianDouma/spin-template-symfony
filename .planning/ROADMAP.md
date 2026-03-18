@@ -13,7 +13,7 @@ Build a production-ready Spin CLI template that bootstraps Symfony 7 LTS with de
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Container Runtime** - Multi-stage Dockerfile and runtime config files that build and serve Symfony correctly across supported PHP variations (completed 2026-03-18)
-- [ ] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, Mailpit, and live-editing volumes
+- [ ] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, self-signed SSL, and live-editing volumes
 - [ ] **Phase 3: Install Scripts** - Interactive `install.sh`, `post-install.sh`, and `meta.yml` that automate setup including runtime selection
 - [ ] **Phase 4: Production and Ship** - Prod Swarm config, Traefik ACME, named volumes, per-runtime labels, and README
 
@@ -32,10 +32,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Dockerfile, .dockerignore, and entrypoint cache warmup script
+- [x] 01-01-PLAN.md — Dockerfile, .dockerignore, and entrypoint cache warmup script
 
 ### Phase 2: Development Environment
-**Goal**: Developers can run `spin up` and get a working local Symfony environment with HTTPS, live code editing, and email testing
+**Goal**: Developers can run `spin up` and get a working local Symfony environment with HTTPS via Traefik, live code editing, and optimized cache performance
 **Depends on**: Phase 1
 **Requirements**: COMP-01, COMP-02, DEV-01, DEV-02, DEV-03, DEV-04, DEV-05, DEV-06, TRAF-01, TRAF-02, TRAF-05
 **Success Criteria** (what must be TRUE):
@@ -44,7 +44,10 @@ Plans:
   3. Editing a PHP file on the host is immediately reflected in the running container without restarting
   4. `var/` directory uses a named volume (not a bind mount), preventing cache performance degradation
   5. Mailpit web UI is accessible at `http://localhost:8025`
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Traefik config, SSL certificates, .infrastructure stubs, and Docker Compose files
 
 ### Phase 3: Install Scripts
 **Goal**: Running `spin new symfony` interactively configures and bootstraps a Symfony 7 LTS project from the template, including PHP version, runtime variation, and OS selection
@@ -77,6 +80,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Container Runtime | 1/1 | Complete   | 2026-03-18 |
-| 2. Development Environment | 0/? | Not started | - |
+| 2. Development Environment | 0/1 | Planning complete | - |
 | 3. Install Scripts | 0/? | Not started | - |
 | 4. Production and Ship | 0/? | Not started | - |
