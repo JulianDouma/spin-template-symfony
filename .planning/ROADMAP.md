@@ -13,7 +13,7 @@ Build a production-ready Spin CLI template that bootstraps Symfony 7 LTS with de
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Container Runtime** - Multi-stage Dockerfile and runtime config files that build and serve Symfony correctly across supported PHP variations (completed 2026-03-18)
-- [ ] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, self-signed SSL, and live-editing volumes
+- [x] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, self-signed SSL, and live-editing volumes (completed 2026-03-18)
 - [ ] **Phase 3: Install Scripts** - Interactive `install.sh`, `post-install.sh`, and `meta.yml` that automate setup including runtime selection
 - [ ] **Phase 4: Production and Ship** - Prod Swarm config, Traefik ACME, named volumes, per-runtime labels, and README
 
@@ -47,7 +47,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 02-01-PLAN.md — Traefik config, SSL certificates, .infrastructure stubs, and Docker Compose files
+- [x] 02-01-PLAN.md — Traefik config, SSL certificates, .infrastructure stubs, and Docker Compose files
 
 ### Phase 3: Install Scripts
 **Goal**: Running `spin new symfony` interactively configures and bootstraps a Symfony 7 LTS project from the template, including PHP version, runtime variation, and OS selection
@@ -79,7 +79,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Container Runtime | 1/1 | Complete   | 2026-03-18 |
-| 2. Development Environment | 0/1 | Planning complete | - |
+| 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
+| 2. Development Environment | 1/1 | Complete | 2026-03-18 |
 | 3. Install Scripts | 0/? | Not started | - |
 | 4. Production and Ship | 0/? | Not started | - |

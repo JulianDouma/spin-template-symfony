@@ -21,17 +21,17 @@
 
 ### Compose Base
 
-- [ ] **COMP-01**: `docker-compose.yml` defines the `php` service with Symfony-appropriate configuration
-- [ ] **COMP-02**: Base compose file is minimal and designed to be extended by dev/prod overlays
+- [x] **COMP-01**: `docker-compose.yml` defines the `php` service with Symfony-appropriate configuration
+- [x] **COMP-02**: Base compose file is minimal and designed to be extended by dev/prod overlays
 
 ### Compose Development
 
-- [ ] **DEV-01**: `docker-compose.dev.yml` includes Traefik reverse proxy on ports 80/443
-- [ ] **DEV-02**: Dev compose mounts entire project directory into container for live editing
-- [ ] **DEV-03**: Dev compose uses a named volume overlay for `var/` to prevent cache/log performance issues with bind mounts
-- [ ] **DEV-04**: Dev compose builds from Dockerfile with `development` target
-- [ ] **DEV-05**: Dev compose includes Mailpit service on port 8025 for email testing
-- [ ] **DEV-06**: Dev compose defines a `development` network for service communication
+- [x] **DEV-01**: `docker-compose.dev.yml` includes Traefik reverse proxy on ports 80/443
+- [x] **DEV-02**: Dev compose mounts entire project directory into container for live editing
+- [x] **DEV-03**: Dev compose uses a named volume overlay for `var/` to prevent cache/log performance issues with bind mounts
+- [x] **DEV-04**: Dev compose builds from Dockerfile with `development` target
+- [x] **DEV-05**: Dev compose includes Mailpit service on port 8025 for email testing [OVERRIDDEN by CONTEXT.md — no Mailpit shipped; README documents it as optional add-on]
+- [x] **DEV-06**: Dev compose defines a `development` network for service communication
 
 ### Compose Production
 
@@ -45,11 +45,11 @@
 
 ### Traefik Configuration
 
-- [ ] **TRAF-01**: Dev Traefik config uses Docker provider with file provider for SSL certificates
-- [ ] **TRAF-02**: Dev Traefik includes self-signed SSL certificates for local HTTPS
+- [x] **TRAF-01**: Dev Traefik config uses Docker provider with file provider for SSL certificates
+- [x] **TRAF-02**: Dev Traefik includes self-signed SSL certificates for local HTTPS
 - [ ] **TRAF-03**: Prod Traefik config uses Swarm provider with ACME HTTP-01 challenge for Let's Encrypt
 - [ ] **TRAF-04**: Prod Traefik includes Cloudflare trusted IPs for proper client IP detection
-- [ ] **TRAF-05**: `.infrastructure/` directory structure mirrors Laravel basic template (conf/traefik/dev/, conf/traefik/prod/, volume_data/)
+- [x] **TRAF-05**: `.infrastructure/` directory structure mirrors Laravel basic template (conf/traefik/dev/, conf/traefik/prod/, volume_data/)
 
 ### Spin Template Structure
 
