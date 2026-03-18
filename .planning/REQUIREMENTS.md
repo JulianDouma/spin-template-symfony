@@ -17,7 +17,7 @@
 
 - [x] **RT-01**: Runtime document root configured to `/var/www/html/public` via serversideup/php environment variables (no custom Caddyfile/nginx/apache configs shipped — per CONTEXT.md decision)
 - [x] **RT-02**: Health check endpoint available for all variations via serversideup/php built-in `/healthcheck` (no custom config required)
-- [ ] **RT-03**: `install.sh` patches Dockerfile, compose files, and Traefik labels based on selected runtime variation (port, scheme, health path)
+- [x] **RT-03**: `install.sh` patches Dockerfile, compose files, and Traefik labels based on selected runtime variation (port, scheme, health path)
 
 ### Compose Base
 
@@ -59,8 +59,8 @@
 - [ ] **SPIN-04**: `install.sh` prompts user for PHP variation (frankenphp default, fpm-nginx, fpm-apache)
 - [ ] **SPIN-05**: `install.sh` prompts user for OS choice (debian default, alpine with performance warning for FrankenPHP)
 - [ ] **SPIN-06**: `install.sh` prompts for server contact email (for Let's Encrypt)
-- [ ] **SPIN-07**: `post-install.sh` installs Symfony 7 LTS skeleton via `composer create-project symfony/skeleton`
-- [ ] **SPIN-08**: `post-install.sh` installs Composer dependencies via Docker container
+- [x] **SPIN-07**: `post-install.sh` installs Symfony 7 LTS skeleton via `composer create-project symfony/skeleton`
+- [x] **SPIN-08**: `post-install.sh` installs Composer dependencies via Docker container
 - [ ] **SPIN-09**: All template files reside in `template/` directory
 
 ### Documentation
@@ -124,10 +124,10 @@
 | SPIN-04 | Phase 3 | Pending |
 | SPIN-05 | Phase 3 | Pending |
 | SPIN-06 | Phase 3 | Pending |
-| SPIN-07 | Phase 3 | Pending |
-| SPIN-08 | Phase 3 | Pending |
+| SPIN-07 | Phase 3 | Complete |
+| SPIN-08 | Phase 3 | Complete |
 | SPIN-09 | Phase 3 | Pending |
-| RT-03 | Phase 3 | Pending |
+| RT-03 | Phase 3 | Complete |
 | PROD-01 | Phase 4 | Pending |
 | PROD-02 | Phase 4 | Pending |
 | PROD-03 | Phase 4 | Pending |

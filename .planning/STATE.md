@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-18T21:08:39.555Z"
+status: executing
+stopped_at: "Completed 03-02-PLAN.md"
+last_updated: "2026-03-18T21:31:49Z"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
 ---
 
 # Project State
@@ -19,20 +19,20 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-18)
 
 **Core value:** Developers can run `spin new symfony` and get a working Symfony 7 LTS application with their choice of PHP runtime (FrankenPHP default, fpm-nginx, fpm-apache), Traefik, and production-ready Docker configuration in under a minute.
-**Current focus:** Phase 03 — install-script
+**Current focus:** Phase 03 — install-scripts
 
 ## Current Position
 
-Phase: 02 (development-environment) — COMPLETE
-Plan: 1 of 1 — COMPLETE
+Phase: 03 (install-scripts) — EXECUTING
+Plan: 2 of 2 (COMPLETE)
 
 ## Performance Metrics
 
 **Velocity:**
 
-- Total plans completed: 2
-- Average duration: 6 min
-- Total execution time: 0.1 hours
+- Total plans completed: 3
+- Average duration: ~7 min
+- Total execution time: ~0.4 hours
 
 **By Phase:**
 
@@ -47,8 +47,9 @@ Plan: 1 of 1 — COMPLETE
 - Trend: improving
 
 *Updated after each plan completion*
-| Phase 01-container-runtime P01 | 2 | 2 tasks | 3 files |
+| Phase 01-container-runtime P01 | ~15min | 2 tasks | 3 files |
 | Phase 02-development-environment P01 | 6min | 2 tasks | 8 files |
+| Phase 03-install-scripts P02 | 1min | 1 task | 1 file |
 
 ## Accumulated Context
 
@@ -70,6 +71,10 @@ Recent decisions affecting current work:
 - [Phase 02-development-environment]: All three PHP variations use identical dev compose labels (port 8080, scheme http) — variation differences only matter for prod (Phase 4)
 - [Phase 02-development-environment]: symfony_var named volume overlaid on var/ only — vendor/ stays in bind mount for IDE autocompletion
 - [Phase 02-development-environment]: No mailpit or node services — minimal, unopinionated; README to document these as optional add-ons
+- [Phase 03-install-scripts P02]: ARG patching uses --action replace (line prefix match) not --action exact — replace is correct for ARG lines
+- [Phase 03-install-scripts P02]: Traefik prod config and .spin.yml email patching uses --ignore-missing — prod traefik.yml is Phase 4 deliverable, must add changeme@example.com placeholder then
+- [Phase 03-install-scripts P02]: git init runs unconditionally (no SPIN_INSTALL_DEPENDENCIES guard) whenever .git absent
+- [Phase 03-install-scripts P02]: Default SPIN_PHP_VARIATION fallback in post-install.sh is frankenphp (consistent with install.sh)
 
 ### Pending Todos
 
@@ -77,12 +82,11 @@ None yet.
 
 ### Blockers/Concerns
 
-- Phase 3: Verify exact Spin bash utility functions available in install.sh (`prompt_and_update_file`, etc.) against reference template source before writing scripts
-- Phase 3: Determine how install.sh selects and patches the correct runtime config files (Caddyfile vs nginx.conf) based on PHP_VARIATION — check reference template patching patterns
 - Phase 4: Verify Traefik v3 label syntax for FrankenPHP HTTPS backend (`scheme=https`, `port=8443`) — syntax changed from v2
+- Phase 4: prod traefik.yml MUST contain `changeme@example.com` placeholder so the post-install.sh email patch (--ignore-missing) takes effect at install time
 
 ## Session Continuity
 
-Last session: 2026-03-18T21:08:39.553Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-install-scripts/03-CONTEXT.md
+Last session: 2026-03-18T21:31:49Z
+Stopped at: Completed 03-02-PLAN.md
+Resume file: .planning/phases/03-install-scripts/03-02-SUMMARY.md

@@ -85,5 +85,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
 | 2. Development Environment | 1/1 | Complete | 2026-03-18 |
-| 3. Install Scripts | 0/2 | Not started | - |
+| 3. Install Scripts | 1/2 | In Progress|  |
 | 4. Production and Ship | 0/? | Not started | - |
