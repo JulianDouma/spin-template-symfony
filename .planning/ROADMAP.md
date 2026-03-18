@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Container Runtime** - Multi-stage Dockerfile and runtime config files that build and serve Symfony correctly across supported PHP variations (completed 2026-03-18)
 - [x] **Phase 2: Development Environment** - Compose base + dev overlay with Traefik, self-signed SSL, and live-editing volumes (completed 2026-03-18)
-- [ ] **Phase 3: Install Scripts** - Interactive `install.sh`, `post-install.sh`, and `meta.yml` that automate setup including runtime selection
+- [x] **Phase 3: Install Scripts** - Interactive `install.sh`, `post-install.sh`, and `meta.yml` that automate setup including runtime selection (completed 2026-03-18)
 - [ ] **Phase 4: Production and Ship** - Prod Swarm config, Traefik ACME, named volumes, per-runtime labels, and README
 
 ## Phase Details
@@ -85,5 +85,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
 | 2. Development Environment | 1/1 | Complete | 2026-03-18 |
-| 3. Install Scripts | 1/2 | In Progress|  |
+| 3. Install Scripts | 2/2 | Complete   | 2026-03-18 |
 | 4. Production and Ship | 0/? | Not started | - |

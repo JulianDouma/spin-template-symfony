@@ -53,15 +53,15 @@
 
 ### Spin Template Structure
 
-- [ ] **SPIN-01**: `meta.yml` registers template with title, authors, description, and repository URL
-- [ ] **SPIN-02**: `install.sh` implements `new()` and `init()` functions dispatched via `$SPIN_ACTION`
-- [ ] **SPIN-03**: `install.sh` prompts user for PHP version (8.3, 8.4, 8.5)
-- [ ] **SPIN-04**: `install.sh` prompts user for PHP variation (frankenphp default, fpm-nginx, fpm-apache)
-- [ ] **SPIN-05**: `install.sh` prompts user for OS choice (debian default, alpine with performance warning for FrankenPHP)
-- [ ] **SPIN-06**: `install.sh` prompts for server contact email (for Let's Encrypt)
+- [x] **SPIN-01**: `meta.yml` registers template with title, authors, description, and repository URL
+- [x] **SPIN-02**: `install.sh` implements `new()` and `init()` functions dispatched via `$SPIN_ACTION`
+- [x] **SPIN-03**: `install.sh` prompts user for PHP version (8.3, 8.4, 8.5)
+- [x] **SPIN-04**: `install.sh` prompts user for PHP variation (frankenphp default, fpm-nginx, fpm-apache)
+- [x] **SPIN-05**: `install.sh` prompts user for OS choice (debian default, alpine with performance warning for FrankenPHP)
+- [x] **SPIN-06**: `install.sh` prompts for server contact email (for Let's Encrypt)
 - [x] **SPIN-07**: `post-install.sh` installs Symfony 7 LTS skeleton via `composer create-project symfony/skeleton`
 - [x] **SPIN-08**: `post-install.sh` installs Composer dependencies via Docker container
-- [ ] **SPIN-09**: All template files reside in `template/` directory
+- [x] **SPIN-09**: All template files reside in `template/` directory
 
 ### Documentation
 
@@ -118,15 +118,15 @@
 | TRAF-01 | Phase 2 | Pending |
 | TRAF-02 | Phase 2 | Pending |
 | TRAF-05 | Phase 2 | Pending |
-| SPIN-01 | Phase 3 | Pending |
-| SPIN-02 | Phase 3 | Pending |
-| SPIN-03 | Phase 3 | Pending |
-| SPIN-04 | Phase 3 | Pending |
-| SPIN-05 | Phase 3 | Pending |
-| SPIN-06 | Phase 3 | Pending |
+| SPIN-01 | Phase 3 | Complete |
+| SPIN-02 | Phase 3 | Complete |
+| SPIN-03 | Phase 3 | Complete |
+| SPIN-04 | Phase 3 | Complete |
+| SPIN-05 | Phase 3 | Complete |
+| SPIN-06 | Phase 3 | Complete |
 | SPIN-07 | Phase 3 | Complete |
 | SPIN-08 | Phase 3 | Complete |
-| SPIN-09 | Phase 3 | Pending |
+| SPIN-09 | Phase 3 | Complete |
 | RT-03 | Phase 3 | Complete |
 | PROD-01 | Phase 4 | Pending |
 | PROD-02 | Phase 4 | Pending |

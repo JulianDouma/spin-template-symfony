@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Completed 03-02-PLAN.md"
-last_updated: "2026-03-18T21:31:49Z"
+stopped_at: "Completed 03-01-PLAN.md"
+last_updated: "2026-03-18T21:34:30Z"
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # Project State
@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-18)
 
 ## Current Position
 
-Phase: 03 (install-scripts) — EXECUTING
-Plan: 2 of 2 (COMPLETE)
+Phase: 03 (install-scripts) — COMPLETE
+Plan: 1 of 2 (now complete; both plans done)
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Plan: 2 of 2 (COMPLETE)
 | Phase 01-container-runtime P01 | ~15min | 2 tasks | 3 files |
 | Phase 02-development-environment P01 | 6min | 2 tasks | 8 files |
 | Phase 03-install-scripts P02 | 1min | 1 task | 1 file |
+| Phase 03-install-scripts P01 | 3min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,9 @@ Recent decisions affecting current work:
 - [Phase 03-install-scripts P02]: Traefik prod config and .spin.yml email patching uses --ignore-missing — prod traefik.yml is Phase 4 deliverable, must add changeme@example.com placeholder then
 - [Phase 03-install-scripts P02]: git init runs unconditionally (no SPIN_INSTALL_DEPENDENCIES guard) whenever .git absent
 - [Phase 03-install-scripts P02]: Default SPIN_PHP_VARIATION fallback in post-install.sh is frankenphp (consistent with install.sh)
+- [Phase 03-install-scripts P01]: FrankenPHP is default variation in install.sh (not fpm-nginx like Laravel) — divergence intentional per CONTEXT.md
+- [Phase 03-install-scripts P01]: PHP_OS_SUFFIX exported as empty string (debian) or "-alpine" (alpine) from assemble_php_docker_image() for post-install.sh ARG patching
+- [Phase 03-install-scripts P01]: new() mounts $(pwd) not $SPIN_PROJECT_DIRECTORY — avoids Docker creating dir as root before composer create-project runs
 
 ### Pending Todos
 
@@ -87,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T21:31:49Z
-Stopped at: Completed 03-02-PLAN.md
-Resume file: .planning/phases/03-install-scripts/03-02-SUMMARY.md
+Last session: 2026-03-18T21:34:30Z
+Stopped at: Completed 03-01-PLAN.md (Phase 03 both plans complete)
+Resume file: .planning/phases/03-install-scripts/03-01-SUMMARY.md
