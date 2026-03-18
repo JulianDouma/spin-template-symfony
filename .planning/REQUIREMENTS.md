@@ -63,6 +63,10 @@
 - [x] **SPIN-08**: `post-install.sh` installs Composer dependencies via Docker container
 - [x] **SPIN-09**: All template files reside in `template/` directory
 
+### Spin Configuration
+
+- [ ] **SPIN-10**: Starter `.spin.yml` with sensible defaults and `changeme@example.com` placeholder (patched by post-install.sh)
+
 ### Documentation
 
 - [ ] **DOC-01**: README.md with installation instructions, required configuration changes, and running commands
@@ -137,12 +141,13 @@
 | PROD-07 | Phase 4 | Pending |
 | TRAF-03 | Phase 4 | Pending |
 | TRAF-04 | Phase 4 | Pending |
+| SPIN-10 | Phase 4 | Pending |
 | DOC-01 | Phase 4 | Pending |
 | DOC-02 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 39 total
-- Mapped to phases: 39
+- v1 requirements: 40 total
+- Mapped to phases: 40
 - Unmapped: 0 ✓
 
 ---

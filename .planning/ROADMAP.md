@@ -67,7 +67,7 @@ Plans:
 ### Phase 4: Production and Ship
 **Goal**: The template supports Docker Swarm production deployment with Let's Encrypt SSL and per-runtime Traefik labels, and is documented well enough for a developer to go from zero to live
 **Depends on**: Phase 3
-**Requirements**: PROD-01, PROD-02, PROD-03, PROD-04, PROD-05, PROD-06, PROD-07, TRAF-03, TRAF-04, DOC-01, DOC-02
+**Requirements**: PROD-01, PROD-02, PROD-03, PROD-04, PROD-05, PROD-06, PROD-07, TRAF-03, TRAF-04, SPIN-10, DOC-01, DOC-02
 **Success Criteria** (what must be TRUE):
   1. `docker stack deploy` with the prod compose file starts the Symfony service in Swarm mode with OPcache enabled and `APP_ENV=prod`
   2. Traefik requests a Let's Encrypt certificate via HTTP-01 challenge using the `SERVER_CONTACT` email collected at install time
