@@ -67,7 +67,7 @@ display_destructive_action_warning(){
     echo "${YELLOW}Please read the following carefully:${RESET}"
     echo "• Potential data loss may occur during this process."
     echo "• Ensure you are running this on a non-production branch."
-    echo "• Make sure you have backups of your files and database."
+    echo "• Make sure you have backups of your files."
     echo "• We will be deleting and reinstalling dependencies based on your composer settings."
     echo "• We will attempt to automatically update your configuration files."
     echo ""
