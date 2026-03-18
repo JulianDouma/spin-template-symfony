@@ -6,7 +6,7 @@ An official-style Spin template that bootstraps a production-ready Symfony 7 (LT
 
 ## Core Value
 
-Developers can run `spin new symfony` and get a working Symfony 7 LTS application with FrankenPHP, Traefik, and production-ready Docker configuration in under a minute.
+Developers can run `spin new symfony` and get a working Symfony 7 LTS application with Traefik and production-ready Docker configuration in under a minute, with their choice of PHP runtime (FrankenPHP default, fpm-nginx, fpm-apache).
 
 ## Requirements
 
@@ -51,7 +51,7 @@ Developers can run `spin new symfony` and get a working Symfony 7 LTS applicatio
 
 ## Constraints
 
-- **Runtime:** FrankenPHP as primary runtime (via serversideup/php images)
+- **Runtime:** Multiple runtimes supported via serversideup/php images (FrankenPHP default, fpm-nginx, fpm-apache)
 - **Framework:** Symfony 7 LTS only
 - **Template conventions:** Must follow Spin template structure exactly (meta.yml, install.sh, template/)
 - **Image base:** Must use `serversideup/php` Docker images
@@ -61,7 +61,7 @@ Developers can run `spin new symfony` and get a working Symfony 7 LTS applicatio
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| FrankenPHP as default runtime | User specified; modern, performant, supports worker mode | — Pending |
+| FrankenPHP as default runtime | Modern, performant, supports worker mode — but not locked in; fpm-nginx and fpm-apache also available | — Pending |
 | No database included | User specified; keeps template minimal, users add their own | — Pending |
 | Follow Laravel basic (not pro) pattern | User specified; basic template scope | — Pending |
 | Configurable PHP version via install.sh | User wants flexibility; support 8.3-8.5 | — Pending |
