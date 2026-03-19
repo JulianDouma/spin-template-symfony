@@ -8,7 +8,7 @@ set -e # Exit on error
 symfony_framework_args=("$@")
 
 # Default PHP Docker Image
-SPIN_PHP_VERSION="${SPIN_PHP_VERSION:-8.3}"
+SPIN_PHP_VERSION="${SPIN_PHP_VERSION:-8.5}"
 SPIN_PHP_DOCKER_INSTALLER_IMAGE="${SPIN_PHP_DOCKER_INSTALLER_IMAGE:-serversideup/php:${SPIN_PHP_VERSION}-cli}"
 SPIN_PHP_DOCKER_BASE_IMAGE="${SPIN_PHP_DOCKER_BASE_IMAGE:-serversideup/php:${SPIN_PHP_VERSION}-frankenphp}"
 

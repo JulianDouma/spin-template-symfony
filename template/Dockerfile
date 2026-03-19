@@ -1,7 +1,7 @@
 ############################################
 # Build Arguments
 ############################################
-ARG PHP_VERSION="8.3"
+ARG PHP_VERSION="8.5"
 ARG PHP_VARIATION="frankenphp"
 # PHP_OS_SUFFIX: "" for Debian (default), "-alpine" for Alpine
 # NOTE: Docker's FROM line only supports literal ARG interpolation — no shell
