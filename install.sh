@@ -95,14 +95,30 @@ project_files_exist() {
 }
 
 set_colors() {
-    RAINBOW='\033[38;5;196m'
-    RED='\033[0;31m'
-    GREEN='\033[0;32m'
-    YELLOW='\033[0;33m'
-    BLUE='\033[0;34m'
-    DIM='\033[2m'
-    BOLD='\033[1m'
-    RESET='\033[0m'
+    if [[ -t 1 ]]; then
+        RAINBOW="
+            $(printf '\033[38;5;196m')
+            $(printf '\033[38;5;202m')
+            $(printf '\033[38;5;226m')
+            $(printf '\033[38;5;082m')
+            "
+        RED=$(printf '\033[31m')
+        GREEN=$(printf '\033[32m')
+        YELLOW=$(printf '\033[33m')
+        BLUE=$(printf '\033[34m')
+        DIM=$(printf '\033[2m')
+        BOLD=$(printf '\033[1m')
+        RESET=$(printf '\033[m')
+    else
+        RAINBOW=""
+        RED=""
+        GREEN=""
+        YELLOW=""
+        BLUE=""
+        DIM=""
+        BOLD=""
+        RESET=""
+    fi
 }
 
 show_header() {
