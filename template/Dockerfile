@@ -73,6 +73,11 @@ RUN composer install --no-dev --no-autoloader --no-scripts --no-progress
 # Copy application code
 COPY --chown=www-data:www-data . .
 
+# Pre-create var/ subdirectories so the named volume (symfony_var:/var/www/html/var)
+# is seeded with correct www-data ownership on first use in production/staging.
+# Docker populates an empty named volume from image content on first mount.
+RUN mkdir -p var/cache var/log && chown -R www-data:www-data var/
+
 # Symfony production build sequence
 # Source: https://symfony.com/doc/current/deployment.html
 #         https://github.com/dunglas/symfony-docker

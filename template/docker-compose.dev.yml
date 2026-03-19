@@ -21,7 +21,6 @@ services:
       CADDY_SERVER_ROOT: /var/www/html/public
     volumes:
       - .:/var/www/html/
-      - symfony_var:/var/www/html/var
     networks:
       - development
     depends_on:
@@ -35,6 +34,3 @@ services:
 
 networks:
   development:
-
-volumes:
-  symfony_var:

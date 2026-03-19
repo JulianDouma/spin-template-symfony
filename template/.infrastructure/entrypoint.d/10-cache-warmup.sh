@@ -10,11 +10,6 @@ set -e
 
 APP_BASE_DIR="${APP_BASE_DIR:-/var/www/html}"
 
-# Ensure var/ subdirectories exist and are writable.
-# Named volume overlays (used in dev for macOS performance) mount empty,
-# so cache/log dirs may not exist yet.
-mkdir -p "$APP_BASE_DIR/var/cache" "$APP_BASE_DIR/var/log"
-
 if [ -f "$APP_BASE_DIR/bin/console" ]; then
     echo "Running Symfony cache:warmup..."
     php "$APP_BASE_DIR/bin/console" cache:warmup
