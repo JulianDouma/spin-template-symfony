@@ -61,8 +61,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — meta.yml template registration and install.sh with interactive prompts
-- [ ] 03-02-PLAN.md — post-install.sh with Dockerfile patching, Composer deps, and git init
+- [x] 03-01-PLAN.md — meta.yml template registration and install.sh with interactive prompts
+- [x] 03-02-PLAN.md — post-install.sh with Dockerfile patching, Composer deps, and git init
 
 ### Phase 4: Production and Ship
 **Goal**: The template supports Docker Swarm production deployment with Let's Encrypt SSL and per-runtime Traefik labels, and is documented well enough for a developer to go from zero to live
@@ -74,7 +74,11 @@ Plans:
   3. HTTP requests to the production domain redirect to HTTPS; FrankenPHP variation uses `loadbalancer.server.port=8443` with `scheme=https` and `SSL_MODE=full`; fpm-nginx and fpm-apache variations use `loadbalancer.server.port=8080` with `scheme=http`
   4. `var/log` and `var/cache` persist across container restarts via named volumes
   5. README documents installation steps, required `.env` changes, and how to run the app — a developer can follow it without reading source files
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Prod compose with Swarm deploy, Traefik prod config with ACME, and .spin.yml scaffold
+- [ ] 04-02-PLAN.md — post-install.sh prod patching, .env.example, and README documentation
 
 ## Progress
 
@@ -86,4 +90,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
 | 2. Development Environment | 1/1 | Complete | 2026-03-18 |
 | 3. Install Scripts | 2/2 | Complete   | 2026-03-18 |
-| 4. Production and Ship | 0/? | Not started | - |
+| 4. Production and Ship | 0/2 | In progress | - |
