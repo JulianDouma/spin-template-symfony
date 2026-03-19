@@ -50,6 +50,28 @@ line_in_file --action replace \
     'ARG PHP_OS_SUFFIX=' \
     "ARG PHP_OS_SUFFIX=\"${PHP_OS_SUFFIX}\""
 
+# Patch Traefik prod labels for fpm-nginx / fpm-apache (FrankenPHP is shipped default)
+if [[ "$SPIN_PHP_VARIATION" != "frankenphp" ]]; then
+    line_in_file --action replace \
+        --file "$project_dir/docker-compose.prod.yml" \
+        'traefik.http.services.symfony.loadbalancer.server.port=' \
+        '      - "traefik.http.services.symfony.loadbalancer.server.port=8080"'
+
+    line_in_file --action replace \
+        --file "$project_dir/docker-compose.prod.yml" \
+        'traefik.http.services.symfony.loadbalancer.server.scheme=' \
+        '      - "traefik.http.services.symfony.loadbalancer.server.scheme=http"'
+fi
+
+# Generate Symfony APP_SECRET (unconditional -- both new and init need it)
+if [[ -f "$project_dir/.env" ]]; then
+    APP_SECRET=$(openssl rand -hex 16)
+    line_in_file --action replace \
+        --file "$project_dir/.env" \
+        'APP_SECRET=' \
+        "APP_SECRET=${APP_SECRET}"
+fi
+
 # Install Composer dependencies
 if [[ "$SPIN_INSTALL_DEPENDENCIES" == "true" ]]; then
     docker pull "$SPIN_PHP_DOCKER_INSTALLER_IMAGE"
