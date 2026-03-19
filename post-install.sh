@@ -34,6 +34,25 @@ initialize_git_repository() {
 # Clear screen before starting
 clear
 
+# Append Symfony-specific .dockerignore entries (Spin creates the base file)
+line_in_file --file "$project_dir/.dockerignore" \
+    "**/*.log" \
+    "**/*.php~" \
+    "**/*.dist.php" \
+    "**/*.dist" \
+    "**/*.cache" \
+    "**/.DS_Store" \
+    ".env.*.local" \
+    ".env.local" \
+    ".env.local.php" \
+    ".env.test" \
+    "var/" \
+    "vendor/" \
+    "tests/" \
+    "node_modules/" \
+    "public/bundles/" \
+    ".planning/"
+
 # Patch Dockerfile ARG defaults to match user selections
 line_in_file --action replace \
     --file "$project_dir/$php_dockerfile" \
