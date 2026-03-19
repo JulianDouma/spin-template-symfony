@@ -69,8 +69,8 @@
 
 ### Documentation
 
-- [ ] **DOC-01**: README.md with installation instructions, required configuration changes, and running commands
-- [ ] **DOC-02**: `.env.example` with Symfony-appropriate environment variables (APP_ENV, APP_SECRET, APP_URL)
+- [x] **DOC-01**: README.md with installation instructions, required configuration changes, and running commands
+- [x] **DOC-02**: `.env.example` with Symfony-appropriate environment variables (APP_ENV, APP_SECRET, APP_URL)
 
 ## v2 Requirements
 
@@ -142,8 +142,8 @@
 | TRAF-03 | Phase 4 | Complete |
 | TRAF-04 | Phase 4 | Complete |
 | SPIN-10 | Phase 4 | Complete |
-| DOC-01 | Phase 4 | Pending |
-| DOC-02 | Phase 4 | Pending |
+| DOC-01 | Phase 4 | Complete |
+| DOC-02 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 40 total

@@ -2,14 +2,14 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: unknown
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-19T19:41:55Z"
+status: complete
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-19T19:47:23Z"
 progress:
   total_phases: 4
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 6
-  completed_plans: 5
+  completed_plans: 6
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-18)
 
 **Core value:** Developers can run `spin new symfony` and get a working Symfony 7 LTS application with their choice of PHP runtime (FrankenPHP default, fpm-nginx, fpm-apache), Traefik, and production-ready Docker configuration in under a minute.
-**Current focus:** Phase 04 — production-and-ship
+**Current focus:** Phase 04 — production-and-ship — COMPLETE
 
 ## Current Position
 
-Phase: 04 (production-and-ship) — EXECUTING
-Plan: 2 of 2
+Phase: 04 (production-and-ship) — COMPLETE
+Plan: 2 of 2 (all plans done)
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Plan: 2 of 2
 | Phase 03-install-scripts P02 | 1min | 1 task | 1 file |
 | Phase 03-install-scripts P01 | 3min | 2 tasks | 2 files |
 | Phase 04-production-and-ship P01 | 2min | 2 tasks | 4 files |
+| Phase 04-production-and-ship P02 | 2min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 04-production-and-ship P01]: FrankenPHP defaults in prod compose use port=8443 and scheme=https — post-install.sh patches to port=8080 scheme=http for fpm-* variants
 - [Phase 04-production-and-ship P01]: providers.swarm (not providers.docker) required for Docker Swarm mode service discovery in Traefik
 - [Phase 04-production-and-ship P01]: Router/service name is 'symfony' (not 'my-php-app' from Laravel template)
+- [Phase 04-production-and-ship P02]: APP_SECRET generation is unconditional and outside SPIN_INSTALL_DEPENDENCIES block — ensures spin init users also get a patched secret
+- [Phase 04-production-and-ship P02]: .env.example ships APP_SECRET= empty; post-install.sh generates and patches real value at install time
 
 ### Pending Todos
 
@@ -94,6 +97,6 @@ None
 
 ## Session Continuity
 
-Last session: 2026-03-19T19:41:55Z
-Stopped at: Completed 04-01-PLAN.md
-Resume file: .planning/phases/04-production-and-ship/04-02-PLAN.md
+Last session: 2026-03-19T19:47:23Z
+Stopped at: Completed 04-02-PLAN.md
+Resume file: none — all plans complete
