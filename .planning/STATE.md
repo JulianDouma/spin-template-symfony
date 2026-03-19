@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-19T19:11:23.176Z"
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-19T19:41:55Z"
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-18)
 
 **Core value:** Developers can run `spin new symfony` and get a working Symfony 7 LTS application with their choice of PHP runtime (FrankenPHP default, fpm-nginx, fpm-apache), Traefik, and production-ready Docker configuration in under a minute.
-**Current focus:** Phase 03 — install-scripts
+**Current focus:** Phase 04 — production-and-ship
 
 ## Current Position
 
-Phase: 03 (install-scripts) — COMPLETE
-Plan: 1 of 2 (now complete; both plans done)
+Phase: 04 (production-and-ship) — EXECUTING
+Plan: 2 of 2
 
 ## Performance Metrics
 
@@ -51,6 +51,7 @@ Plan: 1 of 2 (now complete; both plans done)
 | Phase 02-development-environment P01 | 6min | 2 tasks | 8 files |
 | Phase 03-install-scripts P02 | 1min | 1 task | 1 file |
 | Phase 03-install-scripts P01 | 3min | 2 tasks | 2 files |
+| Phase 04-production-and-ship P01 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [Phase 03-install-scripts P01]: FrankenPHP is default variation in install.sh (not fpm-nginx like Laravel) — divergence intentional per CONTEXT.md
 - [Phase 03-install-scripts P01]: PHP_OS_SUFFIX exported as empty string (debian) or "-alpine" (alpine) from assemble_php_docker_image() for post-install.sh ARG patching
 - [Phase 03-install-scripts P01]: new() mounts $(pwd) not $SPIN_PROJECT_DIRECTORY — avoids Docker creating dir as root before composer create-project runs
+- [Phase 04-production-and-ship P01]: FrankenPHP defaults in prod compose use port=8443 and scheme=https — post-install.sh patches to port=8080 scheme=http for fpm-* variants
+- [Phase 04-production-and-ship P01]: providers.swarm (not providers.docker) required for Docker Swarm mode service discovery in Traefik
+- [Phase 04-production-and-ship P01]: Router/service name is 'symfony' (not 'my-php-app' from Laravel template)
 
 ### Pending Todos
 
@@ -86,11 +90,10 @@ None yet.
 
 ### Blockers/Concerns
 
-- Phase 4: Verify Traefik v3 label syntax for FrankenPHP HTTPS backend (`scheme=https`, `port=8443`) — syntax changed from v2
-- Phase 4: prod traefik.yml MUST contain `changeme@example.com` placeholder so the post-install.sh email patch (--ignore-missing) takes effect at install time
+None
 
 ## Session Continuity
 
-Last session: 2026-03-19T19:11:23.173Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-production-and-ship/04-CONTEXT.md
+Last session: 2026-03-19T19:41:55Z
+Stopped at: Completed 04-01-PLAN.md
+Resume file: .planning/phases/04-production-and-ship/04-02-PLAN.md

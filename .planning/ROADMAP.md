@@ -77,7 +77,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Prod compose with Swarm deploy, Traefik prod config with ACME, and .spin.yml scaffold
+- [x] 04-01-PLAN.md — Prod compose with Swarm deploy, Traefik prod config with ACME, and .spin.yml scaffold
 - [ ] 04-02-PLAN.md — post-install.sh prod patching, .env.example, and README documentation
 
 ## Progress
@@ -90,4 +90,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 1. Container Runtime | 1/1 | Complete | 2026-03-18 |
 | 2. Development Environment | 1/1 | Complete | 2026-03-18 |
 | 3. Install Scripts | 2/2 | Complete   | 2026-03-18 |
-| 4. Production and Ship | 0/2 | In progress | - |
+| 4. Production and Ship | 1/2 | In progress | - |

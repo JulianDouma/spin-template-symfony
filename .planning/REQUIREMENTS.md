@@ -35,20 +35,20 @@
 
 ### Compose Production
 
-- [ ] **PROD-01**: `docker-compose.prod.yml` uses Docker Swarm mode with deployment constraints
-- [ ] **PROD-02**: Prod compose uses pre-built image (not Dockerfile build) for deployment
-- [ ] **PROD-03**: Prod compose includes named volumes for `var/log`, `var/cache`, and Let's Encrypt certificates
-- [ ] **PROD-04**: Prod compose sets `APP_ENV=prod`, `PHP_OPCACHE_ENABLE=1`
-- [ ] **PROD-05**: Prod compose configures Traefik health check using the appropriate health endpoint for the selected runtime
-- [ ] **PROD-06**: Prod compose enables HTTPS via Let's Encrypt with HTTP→HTTPS redirect
-- [ ] **PROD-07**: Prod compose Traefik labels adapt to selected runtime — FrankenPHP uses `loadbalancer.server.port=8443` with `scheme=https` and `SSL_MODE=full`; fpm-nginx/fpm-apache use `loadbalancer.server.port=8080` with `scheme=http`
+- [x] **PROD-01**: `docker-compose.prod.yml` uses Docker Swarm mode with deployment constraints
+- [x] **PROD-02**: Prod compose uses pre-built image (not Dockerfile build) for deployment
+- [x] **PROD-03**: Prod compose includes named volumes for `var/log`, `var/cache`, and Let's Encrypt certificates
+- [x] **PROD-04**: Prod compose sets `APP_ENV=prod`, `PHP_OPCACHE_ENABLE=1`
+- [x] **PROD-05**: Prod compose configures Traefik health check using the appropriate health endpoint for the selected runtime
+- [x] **PROD-06**: Prod compose enables HTTPS via Let's Encrypt with HTTP→HTTPS redirect
+- [x] **PROD-07**: Prod compose Traefik labels adapt to selected runtime — FrankenPHP uses `loadbalancer.server.port=8443` with `scheme=https` and `SSL_MODE=full`; fpm-nginx/fpm-apache use `loadbalancer.server.port=8080` with `scheme=http`
 
 ### Traefik Configuration
 
 - [x] **TRAF-01**: Dev Traefik config uses Docker provider with file provider for SSL certificates
 - [x] **TRAF-02**: Dev Traefik includes self-signed SSL certificates for local HTTPS
-- [ ] **TRAF-03**: Prod Traefik config uses Swarm provider with ACME HTTP-01 challenge for Let's Encrypt
-- [ ] **TRAF-04**: Prod Traefik includes Cloudflare trusted IPs for proper client IP detection
+- [x] **TRAF-03**: Prod Traefik config uses Swarm provider with ACME HTTP-01 challenge for Let's Encrypt
+- [x] **TRAF-04**: Prod Traefik includes Cloudflare trusted IPs for proper client IP detection
 - [x] **TRAF-05**: `.infrastructure/` directory structure mirrors Laravel basic template (conf/traefik/dev/, conf/traefik/prod/, volume_data/)
 
 ### Spin Template Structure
@@ -65,7 +65,7 @@
 
 ### Spin Configuration
 
-- [ ] **SPIN-10**: Starter `.spin.yml` with sensible defaults and `changeme@example.com` placeholder (patched by post-install.sh)
+- [x] **SPIN-10**: Starter `.spin.yml` with sensible defaults and `changeme@example.com` placeholder (patched by post-install.sh)
 
 ### Documentation
 
@@ -132,16 +132,16 @@
 | SPIN-08 | Phase 3 | Complete |
 | SPIN-09 | Phase 3 | Complete |
 | RT-03 | Phase 3 | Complete |
-| PROD-01 | Phase 4 | Pending |
-| PROD-02 | Phase 4 | Pending |
-| PROD-03 | Phase 4 | Pending |
-| PROD-04 | Phase 4 | Pending |
-| PROD-05 | Phase 4 | Pending |
-| PROD-06 | Phase 4 | Pending |
-| PROD-07 | Phase 4 | Pending |
-| TRAF-03 | Phase 4 | Pending |
-| TRAF-04 | Phase 4 | Pending |
-| SPIN-10 | Phase 4 | Pending |
+| PROD-01 | Phase 4 | Complete |
+| PROD-02 | Phase 4 | Complete |
+| PROD-03 | Phase 4 | Complete |
+| PROD-04 | Phase 4 | Complete |
+| PROD-05 | Phase 4 | Complete |
+| PROD-06 | Phase 4 | Complete |
+| PROD-07 | Phase 4 | Complete |
+| TRAF-03 | Phase 4 | Complete |
+| TRAF-04 | Phase 4 | Complete |
+| SPIN-10 | Phase 4 | Complete |
 | DOC-01 | Phase 4 | Pending |
 | DOC-02 | Phase 4 | Pending |
 
