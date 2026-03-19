@@ -1,0 +1,21 @@
+# .spin.yml - Spin server configuration
+# Full documentation: https://serversideup.net/open-source/spin/docs/server-configuration/spin-yml-usage
+
+server_contact: changeme@example.com
+server_timezone: "Etc/UTC"
+use_passwordless_sudo: true
+
+users:
+  - username: spin
+    name: Spin User
+    groups: ['sudo']
+    authorized_keys:
+      - public_key: "~/.ssh/id_ed25519.pub"
+
+servers:
+  - server_name: web-1
+    environment: production
+    hardware_profile: your_hardware_profile
+
+environments:
+  - name: production
