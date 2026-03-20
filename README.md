@@ -1,6 +1,6 @@
-# Official Symfony Template by Spin
+# Unofficial Symfony Template for Spin
 
-This is the official Spin template for Symfony that helps you get up and running with:
+This is an unofficial Spin template for Symfony that helps you get up and running with:
 
 - Symfony 7 LTS
 - Your choice of PHP runtime: FrankenPHP (default), fpm-nginx, or fpm-apache
