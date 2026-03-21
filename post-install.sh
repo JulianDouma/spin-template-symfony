@@ -69,7 +69,7 @@ line_in_file --action replace \
     'ARG PHP_OS_SUFFIX=' \
     "ARG PHP_OS_SUFFIX=\"${PHP_OS_SUFFIX}\""
 
-# Patch Traefik prod labels for fpm-nginx / fpm-apache (FrankenPHP is shipped default)
+# Patch Traefik prod labels and env vars for fpm-nginx / fpm-apache (FrankenPHP is shipped default)
 if [[ "$SPIN_PHP_VARIATION" != "frankenphp" ]]; then
     line_in_file --action replace \
         --file "$project_dir/docker-compose.prod.yml" \
@@ -80,6 +80,35 @@ if [[ "$SPIN_PHP_VARIATION" != "frankenphp" ]]; then
         --file "$project_dir/docker-compose.prod.yml" \
         'traefik.http.services.symfony.loadbalancer.server.scheme=' \
         '      - "traefik.http.services.symfony.loadbalancer.server.scheme=http"'
+
+    line_in_file --action replace \
+        --file "$project_dir/docker-compose.prod.yml" \
+        'traefik.http.services.symfony.loadbalancer.healthcheck.scheme=' \
+        '      - "traefik.http.services.symfony.loadbalancer.healthcheck.scheme=http"'
+
+    if [[ "$SPIN_PHP_VARIATION" == "fpm-nginx" ]]; then
+        line_in_file --action replace \
+            --file "$project_dir/docker-compose.dev.yml" \
+            'CADDY_SERVER_ROOT:' \
+            '      NGINX_WEBROOT: /var/www/html/public'
+
+        line_in_file --action replace \
+            --file "$project_dir/docker-compose.prod.yml" \
+            'CADDY_SERVER_ROOT:' \
+            '      NGINX_WEBROOT: "/var/www/html/public"'
+    fi
+
+    if [[ "$SPIN_PHP_VARIATION" == "fpm-apache" ]]; then
+        line_in_file --action replace \
+            --file "$project_dir/docker-compose.dev.yml" \
+            'CADDY_SERVER_ROOT:' \
+            '      APACHE_DOCUMENT_ROOT: /var/www/html/public'
+
+        line_in_file --action replace \
+            --file "$project_dir/docker-compose.prod.yml" \
+            'CADDY_SERVER_ROOT:' \
+            '      APACHE_DOCUMENT_ROOT: "/var/www/html/public"'
+    fi
 fi
 
 # Generate Symfony APP_SECRET (unconditional -- both new and init need it)
