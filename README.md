@@ -121,6 +121,27 @@ The Mailpit web UI will be available at [http://localhost:8025](http://localhost
 
 ## Advanced Configuration
 
+### Development performance: `var/` bind mount and VirtioFS
+
+In development, `var/` (Symfony's cache and log directory) is mounted as a **bind mount** from the host. This is intentional — it avoids ownership issues and lets you inspect cached files directly on your host.
+
+On macOS with Docker Desktop, bind mounts can be slower than named volumes for write-heavy directories like `var/cache`. To get near-native performance, enable **VirtioFS** in Docker Desktop:
+
+> Docker Desktop → Settings → General → Virtual file sharing implementation → VirtioFS
+
+If VirtioFS is unavailable (older Docker Desktop) or you prefer a named volume overlay, add the following to `docker-compose.dev.yml`:
+
+```yaml
+  php:
+    volumes:
+      - symfony_var:/var/www/html/var
+
+volumes:
+  symfony_var:
+```
+
+This overrides the bind mount from `docker-compose.yml` with a named volume scoped to the dev overlay.
+
 ### Trusted SSL certificates in development
 
 We provide certificates by default. If you'd like to trust these certificates, you need to install the CA on your machine.
