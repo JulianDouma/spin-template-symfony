@@ -67,7 +67,7 @@ services:
         - "traefik.http.services.symfony.loadbalancer.healthcheck.path=/healthcheck"
         - "traefik.http.services.symfony.loadbalancer.healthcheck.interval=30s"
         - "traefik.http.services.symfony.loadbalancer.healthcheck.timeout=5s"
-        - "traefik.http.services.symfony.loadbalancer.healthcheck.scheme=http"
+        - "traefik.http.services.symfony.loadbalancer.healthcheck.scheme=https"
 
 configs:
   traefik:
